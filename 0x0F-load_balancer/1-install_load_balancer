@@ -10,11 +10,11 @@ apt-get -y install haproxy
 # edit config file
 server_config=\
 "
-frontend  famanuel-frontend
+frontend  mykedigitals-frontend
         bind *:80
         mode http
-        default_backend famanuel-backend
-backend famanuel-backend
+        default_backend mykedigitals-backend
+backend mykedigitals-backend
         balance roundrobin
         server 74068-web-01 54.197.206.225:80 check
         server 74068-web-02 100.26.57.47:80 check
