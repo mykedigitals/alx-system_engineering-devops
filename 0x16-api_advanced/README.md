@@ -16,3 +16,8 @@ Write a function that queries the Reddit API and prints the titles of the first 
 Write a recursive function that queries the Reddit API and returns a list containing the titles of all hot articles for a given subreddit. If no results are found for the given subreddit, the function should return None.
 
 Hint: The Reddit API uses pagination for separating pages of responses.
+
+
+3. Count it!
+
+Write a recursive function that queries the Reddit API, parses the title of all hot articles, and prints a sorted count of given keywords (case-insensitive, delimited by spaces. Javascript should count as javascript, but java should not).
