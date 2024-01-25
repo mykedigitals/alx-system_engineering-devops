@@ -1,6 +1,6 @@
 # Incident report for Airbnb clone project
 ## Issue Summary
-On August 11th, 2023 from 9:00 pM to 10:00 PM WAT, MY AIRBNB CLONE website was down whenever i try to access the API web service. The service failed 100% of time which if deployed like that, 100% of users will experience a 500 internal server error, caused by not deleting other classes mapped with the particular class i intend deleting.
+On December 24th, 2023 from 9:00 pM to 10:00 PM WAT, MY AIRBNB CLONE website was down whenever i try to access the API web service. The service failed 100% of time which if deployed like that, 100% of users will experience a 500 internal server error, caused by not deleting other classes mapped with the particular class i intend deleting.
 
 Timeline
 9:00 PM Server down
