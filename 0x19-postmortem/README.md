@@ -1,29 +1,16 @@
-Using one of the web stack debugging project issue or an outage you have personally face, write a postmortem. Most of you will never have faced an outage, so just get creative and invent your own :)
+# Incident report for Airbnb clone project
+## Issue Summary
+On August 11th, 2023 from 9:00 pM to 10:00 PM WAT, MY AIRBNB CLONE website was down whenever i try to access the API web service. The service failed 100% of time which if deployed like that, 100% of users will experience a 500 internal server error, caused by not deleting other classes mapped with the particular class i intend deleting.
 
-Requirements:
+Timeline
+9:00 PM Server down
+9:10 PM Error logs checked
+9:20 PM File causing error traced
+9:45 PM API endpoint reviwed and other classes mapped with it was properly reviewed
+10:00 PM 100% restored and API web service for the DELETE method restored
+## Root Cause and Resolution
+After the whole API endpoint was designed and url created, some edge cases were not covered which should have specified the error before deploying. After the server was down, the error message received from the server was thoroghly checked and the file causing this error was gotten. It was noticed that while using the method DELETE, the classes mapped to the database using SQLAlchemy contains some classes that were in relation with themselves using the backref class relationship of SQLAlchemy. So, in an attempt to delete some of these classes, the other classes mapped to them were left out which now cause the error. The error was fixed by writing code that deletes not just the class but broke or dissociates its relationships with other classes.
 
-Issue Summary (that is often what executives will read) must contain:
-duration of the outage with start and end times (including timezone)
-what was the impact (what service was down/slow? What were user experiencing? How many % of the users were affected?)
-what was the root cause
-Timeline (format bullet point, format: time - keep it short, 1 or 2 sentences) must contain:
 
-when was the issue detected
-how was the issue detected (monitoring alert, an engineer noticed something, a customer complained…)
-actions taken (what parts of the system were investigated, what were the assumption on the root cause of the issue)
-misleading investigation/debugging paths that were taken
-which team/individuals was the incident escalated to
-how the incident was resolved
-Root cause and resolution must contain:
-
-explain in detail what was causing the issue
-explain in detail how the issue was fixed
-Corrective and preventative measures must contain:
-
-what are the things that can be improved/fixed (broadly speaking)
-a list of tasks to address the issue (be very specific, like a TODO, example: patch Nginx server, add monitoring on server memory…)
-Be brief and straight to the point, between 400 to 600 words
-
-While postmortem format can vary, stick to this one so that you can get properly reviewed by your peers.
-
-Please, remember that these blogs must be written in English to further your technical ability in a variety of settings.
+## Corrective and Preventative Measures
+This problem can be corrected and prevented by writing test cases that takes care of all test cases before deploying.
